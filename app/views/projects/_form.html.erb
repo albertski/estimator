@@ -1,0 +1,46 @@
+
+<div class="mt-8 lg:mt-16 flex flex-col space-y-6">
+  <%= form_with(model: project) do |form| %>
+    <div class="bg-white shadow px-4 py-5 lg:rounded-lg sm:p-6">
+      <h3 class="text-lg font-medium leading-6 text-gray-900">Add Project</h3>
+
+      <% if project.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+          <ul>
+            <% project.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="mt-5">
+        <div class="space-y-6">
+          <div class="sm:col-span-3">
+            <%= form.label :title %>
+            <%= form.text_field :title %>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-5 md:mt-0 md:col-span-2">
+        <div class="space-y-6">
+          <div class="sm:col-span-3">
+            <%= form.label :description %>
+            <%= form.text_field :description %>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-5 md:mt-0 md:col-span-2">
+        <div class="space-y-6">
+          <div class="sm:col-span-3 actions">
+           <%= form.submit %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
